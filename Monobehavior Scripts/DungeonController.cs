@@ -2,25 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* 
-
-3/13 Video 12 minutes in with error popping up for dungeon controller
-about being out of array index. So far only error, but expecting one more as
-video starts to speak of an issue coming up
-
-
-*/
-
-
 
 public class DungeonController: MonoBehaviour
 {
    public GameObject northDoor, southDoor,eastDoor, westDoor;
+   public GameObject northPellet, southPellet, eastPellet, westPellet;
 
     // Start is called before the first frame update
     void Start()
     {
-        Room theCurrentRoom = MySingleton.thePlayer.getCurrentRoom();
+       this.setDoors();
+       this.setPellets();
+    }
+
+    private void setDoors()
+    {
+         Room theCurrentRoom = MySingleton.thePlayer.getCurrentRoom();
         if(theCurrentRoom.hasExit("north"))
         {
             this.northDoor.SetActive(false);
@@ -38,6 +35,27 @@ public class DungeonController: MonoBehaviour
             this.westDoor.SetActive(false);
         }
 
+    }
+
+    private void setPellets()
+    {
+        Room theCurrentRoom = MySingleton.thePlayer.getCurrentRoom();
+        if(!theCurrentRoom.hasPellet("north"))
+        {
+            this.northPellet.SetActive(false);
+        }
+        if(!theCurrentRoom.hasPellet("south"))
+        {
+            this.southPellet.SetActive(false);
+        }
+        if(!theCurrentRoom.hasPellet("east"))
+        {
+            this.eastPellet.SetActive(false);
+        }
+        if(!theCurrentRoom.hasPellet("west"))
+        {
+            this.westPellet.SetActive(false);
+        }
     }
 
     // Update is called once per frame

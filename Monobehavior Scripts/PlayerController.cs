@@ -52,8 +52,6 @@ public class PlayerController : MonoBehaviour
             this.amMoving = true;
             this.middleOfRoom.SetActive(true);
             this.amAtMiddleOfRoom = false;
-             
-
 
             if(MySingleton.currentDirection.Equals("north"))
             {
@@ -74,7 +72,6 @@ public class PlayerController : MonoBehaviour
 
             //StartCoroutine(turnOnMiddle());
         }
-
         else 
         {
             // we will keep positioning the player at the middle so we will need to 
@@ -99,6 +96,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if(other.CompareTag("door"))
         {
             MySingleton.thePlayer.getCurrentRoom().removePlayer(MySingleton.currentDirection);
@@ -107,8 +105,27 @@ public class PlayerController : MonoBehaviour
         }
         else if(other.CompareTag("power-pellet"))
         {
-            
+            // this makes the pellet disappear in game
+            other.gameObject.SetActive(false);
+            // this makes the pellet dissappear programatically
+            Room theCurrentRoom = MySingleton.thePlayer.getCurrentRoom();
+
+            // this is where we will launch the scene, want the pellet code in the prefight scene to remain stable while we transition
+            EditorSceneManager.LoadScene("FightScene");
+
         }
+
+        /*if(MySingleton.firstTimeFirstRoom)
+        {
+            theCurrentRoom.removePellet(MySingleton.currentDirection);
+            MySingleton.firstTimeFirstRoom = false;
+        }
+        else
+        {
+            theCurrentRoom.removePellet(MySingleton.flipDirection(MySingleton.currentDirection));
+        }
+
+        */
 
         else if (other.CompareTag("middleOfTheRoom") && !MySingleton.currentDirection.Equals("?"))
         {

@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+// NOT SEtTING THE RIGHT PELLETS GOT THROUFH REST BUT PELLETS ARE NOT LOADINNG
+
+
 public class Room 
 {
     private string name;
@@ -26,76 +31,80 @@ public class Room
         this.currentPlayer.setCurrentRoom(this);    // updates player to their new current room
     }
 
-    public Pellet addPellet(Pellet p, string direction)
+    public void addPellet(Pellet p, string direction)
     {
-        if (direction.Equals"north")
+        if (direction.Equals("north"))
         {
             this.northPellet = p;
         }
-        else if (direction.Equals"south")
+        else if(direction.Equals("south"))
         {
-            this.northPellet = p;
+            this.southPellet = p;
         }
-        else if (direction.Equals"east")
+        else if (direction.Equals("east"))
         {
-            this.northPellet = p;
+            this.eastPellet = p;
         }
-        else if (direction.Equals"west")
+        else if (direction.Equals("west"))
         {
-            this.northPellet = p;
+            this.westPellet = p;
         }
         else
         {
-            Debug.log("Not a valid pellet direction");
+            Debug.Log("Not a valid pellet direction");
         }
     }
 
-    public Pellet removePellet(string direction)
+    public void removePellet(string direction)
     {
-        if (direction.Equals"north")
+        if (direction.Equals("north"))
         {
             this.northPellet = null;
         }
-        else if (direction.Equals"south")
+        else if (direction.Equals("south"))
         {
-            this.northPellet = null;
+            this.southPellet = null;
         }
-        else if (direction.Equals"east")
+        else if (direction.Equals("east"))
         {
-            this.northPellet = null;
+            this.eastPellet = null;
         }
-        else if (direction.Equals"west")
+        else if (direction.Equals("west"))
         {
-            this.northPellet = null;
+            this.westPellet = null;
         }
         else
         {
-            Debug.log("Not a valid pellet direction to add");
+            Debug.Log("Not a valid pellet direction to add");
         }
     }
 
      public bool hasPellet(string direction)
     {
-        if (direction.Equals"north")
+        if (direction.Equals("north"))
         {
             return this.northPellet != null;
         }
-        else if (direction.Equals"south")
+        else if (direction.Equals("south"))
         {
-            this.northPellet = null;
+          return this.southPellet != null;
         }
-        else if (direction.Equals"east")
+        else if (direction.Equals("east"))
         {
-            this.northPellet = null;
+            this.eastPellet = null;
         }
-        else if (direction.Equals"west")
+        else if (direction.Equals("west"))
         {
-            this.northPellet = null;
+            this.westPellet = null;
         }
-        else
+        else 
         {
-            Debug.log("Not a valid pellet direction to remove");
+            Debug.Log("Not a valid pellet direction to remove");
+            return false;
         }
+
+        return false;
+
     }
 
     // remove the current player from the room
@@ -140,6 +149,23 @@ public class Room
             Exit e = new Exit(direction, destinationRoom);
             this.theExits[this.howManyExits] = e;
             this.howManyExits++;
+
+            if(direction.Equals("north"))
+            {
+                this.northPellet = new ArmorPellet();
+            }
+            if(direction.Equals("south"))
+            {
+                this.southPellet = new ArmorPellet();
+            }
+            if(direction.Equals("east"))
+            {
+                this.eastPellet = new ArmorPellet();
+            }
+            if(direction.Equals("west"))
+            {
+                this.westPellet = new ArmorPellet();
+            }
         }
     }
 
