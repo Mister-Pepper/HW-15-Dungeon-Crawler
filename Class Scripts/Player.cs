@@ -1,28 +1,16 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player 
+public class Player : Inhabitant
 {
-   private string name;
+   
    private Room currentRoom;
 
    // functions
-   public Player(string name)
-   {
-        this.name = name;
-        this.currentRoom = null;
+   public Player(string name) : base(name)
+   { 
+
    }
-
-   public Room getCurrentRoom()
-   {
-     return this.currentRoom;
-   }
-
-   public void setCurrentRoom(Room r)
-   {
-     this.currentRoom = r;
-   } 
-
    
 }
