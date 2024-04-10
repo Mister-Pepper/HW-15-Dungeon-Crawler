@@ -23,7 +23,6 @@ public class FightController : MonoBehaviour
     /*
         Object for the announcer text mesh pro
     */
-
     public TextMeshPro announcer_TMP;
 
     // variable whether the attacker is player or munster
@@ -58,7 +57,9 @@ public class FightController : MonoBehaviour
         // have the announcer text set to black at the begining of each call 
         this.announcer_TMP.text = "";
         // attacker will be trying to attack the defender
-        int attackRoll = Random.Range(0,20) + 1;// this will give us a value between 1-21...
+
+        // ALSO ADDING BASEDMG here!!!!!!!
+        int attackRoll = MySingleton.thePlayer.baseDMG + Random.Range(0,20) + 1;// this will give us a value between 1-21...
         if (attackRoll >= defender.getAC())
         {
             // insert sound stuff
@@ -146,12 +147,11 @@ public class FightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isFightOver) // true?
-        {
-            if(Input.GetKeyUp(KeyCode.Space))
-            {
-                EditorSceneManager.LoadScene("Scene2");
-            }
+        if(isFightOver && Input.GetKeyUp(KeyCode.Space)) // true?
+        {           
+            MySingleton.thePlayer.resetStats(); // reset HP for the next fight
+             EditorSceneManager.LoadScene("Scene2");
         }
+
     }
 }

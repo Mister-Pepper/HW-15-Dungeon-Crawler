@@ -10,6 +10,8 @@ public class MySingleton
    public static Dungeon theDungeon = MySingleton.generateDungeon();
    public static bool firstTimeFirstRoom = true;
 
+   
+
    // functions
    public static string flipDirection(string direction)
    {
