@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.SceneManagement;
 using TMPro;
+using UnityEngine.SceneManagement;
 /*
 */
 
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public GameObject eastExit;
     public GameObject westExit;
     public GameObject middleOfRoom;
+
+    public Scene currentScene;
 
     private bool amMoving = false;
     private bool amAtMiddleOfRoom = false;
@@ -40,6 +43,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //need a game object of type scene to compare down the road
+        currentScene = SceneManager.GetActiveScene();
         
         this.pellet_TMP.text = "" + MySingleton.currentPellets; // for string 
         // turn off exits when we initially load a scene
@@ -199,7 +204,25 @@ public class PlayerController : MonoBehaviour
             this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position,this.eastExit.transform.position, this.speed* Time.deltaTime);
         }
 
+    /*
+
+
+    HW #22 Edits
+    * Check if the current scene is the the fight scene
+    * IF the scene is not a fight scene, implement IF status in update to see if user inputs escape key
+    * IF the user inputs an escape key, that means that the shop keeper scene is loaded
+
+
+    */
+
+    // scene check
+    if(currentScene.name != "FightScene" && Input.GetKeyUp(KeyCode.Escape)) // the player has pressed escape and the scene isnt fight
+    {
+        SceneManager.LoadScene("ShopKeeper");
+    }
+
     }
     
+   
 
 }
