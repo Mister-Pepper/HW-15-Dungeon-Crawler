@@ -44,6 +44,20 @@ public abstract class Inhabitant
     this.hp = this.hp - pain; //reduction in hit points takes place here
    }
 
+   public void addHP(int intHP)
+   {
+      if (intHP > 0)
+      {
+         this.hp += intHP;
+
+            // protects against overhealing
+         if (this.hp > this.maxHP)
+         {
+            this.hp = this.maxHP;
+         }
+      }
+   }
+
 
 
 }

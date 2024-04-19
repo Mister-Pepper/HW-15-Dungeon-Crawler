@@ -1,0 +1,52 @@
+{
+    "items":
+        [
+            {
+                "name" : "stealth",
+                "stat_impacted":"hp" ,
+                "modifier": 5
+            },
+
+            {
+                "name": "ancient's pledge",
+                "stat_impacted": "atk",
+                "modifier":3
+            },
+
+            {
+                "name": "stealth",
+                "stat_impacted": "atk",
+                "modifier":3
+            },
+
+            {
+                "name": "Patience",
+                "stat_impacted": "atk",
+                "modifier":1
+            },
+
+            {
+                "name": "Beast",
+                "stat_impacted": "atk",
+                "modifier":3
+            },
+
+            {
+                "name": "Strength",
+                "stat_impacted": "atk",
+                "modifier": 2
+            },
+
+            {
+                "name": "Engigma",
+                "stat_impacted": "atk",
+                "modifier":4
+            },
+
+            {
+                "name": "Lawbringer",
+                "stat_impacted": "atk",
+                "modifier": 5
+            }
+        ]
+}
