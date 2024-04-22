@@ -4,49 +4,65 @@
             {
                 "name" : "stealth",
                 "stat_impacted":"hp" ,
-                "modifier": 5
+                "modifier": 5,
+                "cost" : 5
             },
 
             {
                 "name": "ancient's pledge",
                 "stat_impacted": "atk",
-                "modifier":3
+                "modifier":3,
+                "cost" : 2
             },
 
             {
                 "name": "stealth",
                 "stat_impacted": "atk",
-                "modifier":3
+                "modifier":3,
+                "cost" : 3
             },
 
             {
                 "name": "Patience",
                 "stat_impacted": "atk",
-                "modifier":1
+                "modifier":1,
+                "cost" : 1
             },
 
             {
                 "name": "Beast",
-                "stat_impacted": "atk",
-                "modifier":3
+                "stat_impacted": "hp",
+                "modifier":3,
+                "cost" : 3
             },
 
             {
                 "name": "Strength",
                 "stat_impacted": "atk",
-                "modifier": 2
+                "modifier": 2,
+                "cost" : 4
             },
 
             {
                 "name": "Engigma",
-                "stat_impacted": "atk",
-                "modifier":4
+                "stat_impacted": "hp",
+                "modifier":4,
+                "cost" : 2
             },
 
             {
                 "name": "Lawbringer",
                 "stat_impacted": "atk",
-                "modifier": 5
+                "modifier": 5,
+                "cost" : 3
+            },
+
+            {
+                "name": "Leaf",
+                "stat_impacted": "hp",
+                "modifier":2,
+                "cost" : 1
             }
+
         ]
 }

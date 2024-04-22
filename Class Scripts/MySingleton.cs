@@ -60,7 +60,7 @@ public class MySingleton
 
     public static string readJsonString()
     {
-        string filePath = "Assets/Data Files/items-data";
+        string filePath = "Assets/Scripts/HW-15-Dungeon-Crawler/Monobehavior Scripts/item-data.json";
         string answer = "";
 
         // Check if the file exists
