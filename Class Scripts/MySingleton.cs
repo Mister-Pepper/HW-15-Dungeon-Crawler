@@ -16,7 +16,7 @@ public class MySingleton
 
    // functions
    public static string flipDirection(string direction)
-   {
+    {
       if(direction.Equals("north"))
          return "south";
       else if(direction.Equals("south"))
@@ -27,9 +27,9 @@ public class MySingleton
          return "east";
       else 
          return "N/A ILLEGAL VALUE";
-   }
+    }
    public static Dungeon generateDungeon()
-   {
+    {
       Room r1 = new Room("R1");
       Room r2 = new Room("R2");
       Room r3 = new Room("R3");
@@ -56,11 +56,11 @@ public class MySingleton
       MySingleton.thePlayer = new Player("Alex");
       theDungeon.addPlayer(MySingleton.thePlayer);
       return theDungeon;
-   }
+    }
 
     public static string readJsonString()
     {
-        string filePath = "Assets/Scripts/HW-15-Dungeon-Crawler/Monobehavior Scripts/item-data.json";
+        string filePath = "Assets/Data Files/items_data_json.txt"; // Path to the file
         string answer = "";
 
         // Check if the file exists
@@ -68,7 +68,6 @@ public class MySingleton
         {
             try
             {
-                Debug.Log("Serialized JSON Parsing");
                 // Open the file to read from
                 using (StreamReader reader = new StreamReader(filePath))
                 {
@@ -84,15 +83,14 @@ public class MySingleton
             catch (Exception ex)
             {
                 // Display any errors that occurred during reading the file
-                Debug.Log("An error occurred while reading the file:");
-                Debug.Log(ex.Message);
+                
                 return null;
             }
         }
         else
         {
-            Debug.Log("The file does not exist.");
             return null;
         }
     }
+
 }

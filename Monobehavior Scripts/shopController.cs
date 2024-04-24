@@ -19,10 +19,12 @@ public class shopController : MonoBehaviour
         this.itemTMP.text = "" + ItemsSingleton.cherryItemCost; 
 
         // read plain text file
-        this.readItemsData();
+        //this.readItemsData();
 
         // read JSON file with serialization
-        string jsonString = MySingleton.readJsonString();
+        string jsonString = MySingleton.readJsonString();     
+
+    
 
         //parse JSON file
         RootObject root = JsonUtility.FromJson<RootObject>(jsonString);

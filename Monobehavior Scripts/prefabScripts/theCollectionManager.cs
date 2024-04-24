@@ -20,6 +20,9 @@ public class theCollectionManager : MonoBehaviour
         //read json file with serialization
         string jsonString = MySingleton.readJsonString();
 
+        // this is where we set up the API i/o
+
+
         // Parse the JSON string
         RootObject root = JsonUtility.FromJson<RootObject>(jsonString);
 
@@ -27,8 +30,11 @@ public class theCollectionManager : MonoBehaviour
         {
             this.startPosition = new Vector3(-3.7f + (this.itemSpawned * 2.51f), 0f, 0f);
             GameObject newObect = Instantiate(this.itemPrefab, this.startPosition, Quaternion.identity);
-            TextMeshPro tmp = newObect.transform.GetChild(0).GetComponent<TextMeshPro>();
+            //TextMeshPro tmp = newObect.transform.GetChild(0).GetComponent<TextMeshPro>();
+
+            TextMeshPro tmp = pokemonAPI.GetRequest("hhttps://pokeapi.co/api/v2/");
             tmp.SetText(jsonString);
+
             //tmp.SetText("Item " + i + "\nCost: 5");
             newObect.transform.SetParent(this.gameObject.transform);
             newObect.transform.localPosition = this.startPosition;
